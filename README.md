@@ -57,8 +57,11 @@ so opacity alone controls how present they feel.
   `https://play.google.com/store/apps/details?id=com.rememo.app`. That page only
   resolves publicly once the app is out of closed testing.
 - The hero phone cross-fades between the app's two visual styles (minimalist and
-  default) on a 12-second loop, with the warm glow that belongs to the colourful
-  one. It holds still for anyone who has "reduce motion" turned on.
+  default) on a 12-second loop. It holds still for anyone who has "reduce
+  motion" turned on.
+- Screenshots are captured from the release build with Android's status-bar demo
+  mode (`adb shell am broadcast -a com.android.systemui.demo`), which is why the
+  clock reads 9:30 with full signal on every one. Retake them the same way.
 - The app is still in closed testing, so every Download button carries a
   "Releasing soon on Google Play" note. Remove those `.note` lines on the day it
   goes public.
