@@ -59,6 +59,11 @@ so opacity alone controls how present they feel.
 - The hero phone cross-fades between the app's two visual styles (minimalist and
   default) on a 12-second loop, with the warm glow that belongs to the colourful
   one. It holds still for anyone who has "reduce motion" turned on.
+- The app is still in closed testing, so every Download button carries a
+  "Releasing soon on Google Play" note. Remove those `.note` lines on the day it
+  goes public.
+- The six languages listed are the app's own UI languages
+  (`src/i18n/locales/` in the ReMemo repo). The website itself is English only.
 - Copy came from the supplied draft; obvious typos were corrected
   (`heathy` → `healthy`, `Costumize` → `Customize`, `jave` → `have`,
   `throughtout` → `throughout`).

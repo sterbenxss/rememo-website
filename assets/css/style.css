@@ -493,6 +493,10 @@ p:last-child { margin-bottom: 0; }
   position: relative;
   z-index: 2;
 }
+/* Four cards would otherwise break three-and-one, which reads as a mistake. */
+@media (min-width: 780px) {
+  .cards--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 .card {
   display: flex;
@@ -506,6 +510,45 @@ p:last-child { margin-bottom: 0; }
 .card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(17, 58, 93, 0.1); }
 .card h3 { margin-bottom: 10px; }
 .card__icon { font-size: 1.9rem; line-height: 1; margin-bottom: 16px; }
+
+/* "Coming soon to Google Play", under a Download button that cannot lead
+   anywhere yet. */
+.note {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: var(--body-soft);
+  margin-top: 16px;
+}
+.note strong { color: var(--primary); font-weight: 500; }
+
+/* The app's six UI languages, in their own scripts. */
+.langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 34px;
+  position: relative;
+  z-index: 2;
+}
+.lang {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  padding: 11px 22px;
+  border-radius: var(--r-pill);
+  background: var(--white);
+  border: 1px solid var(--line);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.lang span {
+  font-family: 'Volkhov', Georgia, serif;
+  font-size: 0.82rem;
+  color: var(--body-soft);
+}
 
 .chip {
   /* Pushed to the bottom so the badges line up across cards of different
