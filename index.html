@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ReMemo — Your reminder to take a break</title>
-<meta name="description" content="ReMemo reminds you to pause, move, hydrate and rest your eyes — based on your actual screen time, not just the clock.">
-<meta property="og:title" content="ReMemo — Your reminder to take a break">
+<title>ReMemo | Your reminder to take a break</title>
+<meta name="description" content="ReMemo reminds you to pause, move, hydrate and rest your eyes, based on your actual screen time rather than the clock.">
+<meta property="og:title" content="ReMemo | Your reminder to take a break">
 <meta property="og:description" content="Redefining healthy productivity. Break reminders that follow how much you have really been using your device.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/img/logo.png">
@@ -48,9 +48,9 @@
   <section class="hero">
     <img class="doodle doodle--float" src="assets/img/line/cat-work.png" alt=""
          style="top: 4%; right: 4%; width: 175px; --rot: 2deg;">
-    <img class="doodle doodle--soft" src="assets/img/line/flower-glasses.png" alt=""
+    <img class="doodle doodle--soft doodle--desktop" src="assets/img/line/flower-glasses.png" alt=""
          style="bottom: 4%; left: 36%; width: 180px;">
-    <img class="doodle doodle--soft doodle--float" src="assets/img/line/blob-work.png" alt=""
+    <img class="doodle doodle--soft doodle--float doodle--desktop" src="assets/img/line/blob-work.png" alt=""
          style="bottom: 3%; right: 2%; width: 190px; --rot: -3deg;">
 
     <div class="container">
@@ -71,9 +71,10 @@
 
         <div class="hero__art">
           <div class="phone">
-            <div class="phone__glow"></div>
-            <img class="phone__a" src="assets/img/phone-minimal.jpg" alt="ReMemo home screen in the minimalist style">
-            <img class="phone__b" src="assets/img/phone-default.jpg" alt="ReMemo home screen in the default colourful style">
+            <div class="phone__screen">
+              <img class="phone__a" src="assets/img/screens/home-minimal-light.jpg" alt="ReMemo home screen in the minimalist style">
+              <img class="phone__b" src="assets/img/screens/home-default.jpg" alt="ReMemo home screen in the default colourful style">
+            </div>
           </div>
         </div>
       </div>
@@ -133,7 +134,7 @@
         <div class="split__art reveal">
           <div class="phone-pair">
             <img src="assets/img/screens/home-minimal-light.jpg" alt="ReMemo in the minimalist style">
-            <img src="assets/img/screens/home-default.png" alt="ReMemo in the default style">
+            <img src="assets/img/screens/home-default.jpg" alt="ReMemo in the default style">
           </div>
         </div>
         <div class="reveal">
@@ -169,8 +170,8 @@
           <p class="accent-line">Choose how and what you want ReMemo to remind you.</p>
         </div>
         <div class="split__art reveal">
-          <img class="screen-shot" src="assets/img/screens/home-default-full.jpg"
-               alt="Reminder settings showing eye, water and stretch breaks with Screen time and General modes">
+          <img src="assets/img/cat-colour.png" alt=""
+               style="width: min(360px, 82%); margin-inline: auto;">
         </div>
       </div>
     </div>
@@ -192,10 +193,15 @@
         <p class="accent-line">Your reminders. Your style. Your ReMemo.</p>
       </div>
 
-      <div class="shot-row reveal" style="margin-top: 52px;">
-        <img class="screen-shot" src="assets/img/screens/collection-friends.jpg" alt="Collection of characters to unlock">
-        <img class="screen-shot" src="assets/img/screens/collection-backgrounds.jpg" alt="Collection of backgrounds to unlock">
-        <img class="screen-shot" src="assets/img/screens/collection-sounds-dark.jpg" alt="Collection of reminder sounds in dark mode">
+      <div class="rail reveal" style="margin-top: 52px;">
+        <div class="rail__track">
+          <img class="screen-shot" src="assets/img/screens/collection-friends.jpg" alt="Collection of characters to unlock">
+          <img class="screen-shot" src="assets/img/screens/collection-backgrounds.jpg" alt="Collection of backgrounds to unlock">
+          <img class="screen-shot" src="assets/img/screens/collection-sounds.jpg" alt="Collection of reminder sounds">
+          <img class="screen-shot dup" src="assets/img/screens/collection-friends.jpg" alt="" aria-hidden="true">
+          <img class="screen-shot dup" src="assets/img/screens/collection-backgrounds.jpg" alt="" aria-hidden="true">
+          <img class="screen-shot dup" src="assets/img/screens/collection-sounds.jpg" alt="" aria-hidden="true">
+        </div>
       </div>
     </div>
   </section>

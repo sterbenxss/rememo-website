@@ -270,6 +270,13 @@ p:last-child { margin-bottom: 0; }
 /* --------------------------------------------------------------------------
    Decorative line art
    -------------------------------------------------------------------------- */
+/* Copy always sits above the decoration. Without this the drawings paint over
+   headings in the sections whose content is not itself a positioned .split. */
+.section > .container,
+.cta > .container,
+.page-head > .container,
+.hero > .container { position: relative; z-index: 2; }
+
 .doodle {
   position: absolute;
   pointer-events: none;
@@ -318,11 +325,29 @@ p:last-child { margin-bottom: 0; }
 
 /* Phone that morphs between the app's two visual styles — the motion the
    reference video opens with. */
+/* A drawn handset rather than a photographed mockup: the screenshots inside
+   carry their own status bar, and a real frame would fight it. */
 .phone {
-  position: relative;
-  width: min(340px, 100%);
+  width: min(304px, 82%);
   margin-inline: auto;
-  aspect-ratio: 348 / 704;
+  padding: 9px;
+  border-radius: 40px;
+  background: #14161A;
+  box-shadow: 0 28px 54px rgba(17, 58, 93, 0.26);
+}
+/**
+ * The screen carries the aspect, not the frame.
+ *
+ * Putting 9/20 on the frame leaves the inner box a different ratio once the
+ * bezel is subtracted, and `cover` then eats the status bar off the top of the
+ * screenshot. Sized here, the screen is exactly the phone's own 1080x2400 and
+ * nothing is cropped.
+ */
+.phone__screen {
+  position: relative;
+  aspect-ratio: 9 / 20;
+  border-radius: 32px;
+  overflow: hidden;
 }
 .phone img {
   position: absolute;
@@ -330,20 +355,6 @@ p:last-child { margin-bottom: 0; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Cropped to the handset itself, so the corners are the only place the
-     mockup's white ground still shows — clipped to the frame's own radius. */
-  border-radius: 11.5% / 5.7%;
-  box-shadow: 0 26px 48px rgba(17, 58, 93, 0.24);
-}
-.phone__glow {
-  position: absolute;
-  top: 6%;
-  right: -14%;
-  width: 62%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(243, 222, 138, 0.85) 0%, rgba(243, 222, 138, 0) 68%);
-  animation: glow-cycle 12s ease-in-out infinite;
 }
 .phone__a { animation: style-a 12s ease-in-out infinite; }
 .phone__b { animation: style-b 12s ease-in-out infinite; }
@@ -358,12 +369,6 @@ p:last-child { margin-bottom: 0; }
   50%, 88% { opacity: 1; }
   100% { opacity: 0; }
 }
-@keyframes glow-cycle {
-  0%, 38% { opacity: 0; }
-  50%, 88% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
 /* --------------------------------------------------------------------------
    Split blocks (text + artwork)
    -------------------------------------------------------------------------- */
@@ -386,14 +391,14 @@ p:last-child { margin-bottom: 0; }
   gap: 0;
 }
 .phone-pair img {
-  width: 60%;
+  width: 58%;
   border-radius: 26px;
   box-shadow: 0 22px 48px rgba(17, 58, 93, 0.2);
   border: 8px solid #14161A;
 }
 .phone-pair img:first-child {
   transform: rotate(-8deg) translateX(18%);
-  width: 52%;
+  width: 50%;
   z-index: 1;
 }
 .phone-pair img:last-child { transform: rotate(-2deg); z-index: 2; }
@@ -412,6 +417,30 @@ p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
 }
 .shot-row .screen-shot { width: min(240px, 44vw); }
+
+/**
+ * A rail of screenshots that drifts sideways.
+ *
+ * On a wide screen the three fit side by side and simply sit there; the
+ * duplicate set is hidden and nothing moves. Narrow, they would stack into a
+ * tall column, so the rail slides instead and the duplicates make the loop
+ * seamless (translating exactly half the track lands the copy where the
+ * original started).
+ */
+.rail { position: relative; z-index: 2; }
+.rail__track {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.rail__track .dup { display: none; }
+.rail__track img { width: min(240px, 44vw); flex: none; }
+
+@keyframes rail-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
 /* --------------------------------------------------------------------------
    Feature list (features page)
@@ -602,12 +631,44 @@ p:last-child { margin-bottom: 0; }
   .nav__cta { display: none; }
   .nav__links .nav__cta-mobile { display: block; }
 
-  .doodle { display: none; }
-  .doodle--keep { display: block; }
+  /* Kept on phones, at about half size: the drawings are most of the
+     personality, and dropping them left whole sections looking like plain
+     text. Anything that would land on the copy is opted out with
+     .doodle--desktop instead. */
+  /* Pinned to one corner rather than the tuned desktop positions, which at
+     phone width land in the middle of the copy. */
+  .doodle {
+    width: 104px !important;
+    opacity: 0.3;
+    top: auto !important;
+    left: auto !important;
+    right: 10px !important;
+    bottom: 14px !important;
+  }
+  .doodle--desktop { display: none; }
 }
 
 @media (min-width: 901px) {
   .nav__links .nav__cta-mobile { display: none; }
+}
+
+@media (max-width: 900px) {
+  /* Both styles stay visible, just smaller: showing one of two defeats the
+     point of the section. */
+  .phone-pair img { width: 46%; }
+  .phone-pair img:first-child { width: 40%; }
+
+  .rail { overflow: hidden; margin-inline: -20px; }
+  .rail__track {
+    width: max-content;
+    justify-content: flex-start;
+    animation: rail-drift 34s linear infinite;
+    padding-inline: 20px;
+  }
+  .rail__track .dup { display: block; }
+  .rail__track img { width: 190px; }
+
+  .feature__art .doodle-inline { width: min(148px, 42%); }
 }
 
 @media (max-width: 560px) {
@@ -615,15 +676,17 @@ p:last-child { margin-bottom: 0; }
   .container, .nav__inner { padding-inline: 20px; }
   .section { padding: 60px 0; }
   .cta { padding: 84px 0; }
-  .phone-pair img:first-child { display: none; }
-  .phone-pair img:last-child { width: 78%; transform: none; }
+  .phone-pair img { width: 48%; }
+  .phone-pair img:first-child { width: 42%; }
+  .rail__track img { width: 168px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .doodle--float,
-  .phone__a, .phone__b, .phone__glow { animation: none; }
-  .phone__b, .phone__glow { opacity: 0; }
+  .phone__a, .phone__b { animation: none; }
+  .phone__b { opacity: 0; }
+  .rail__track { animation: none; }
   .btn:hover, .card:hover { transform: none; }
 }
