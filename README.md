@@ -51,6 +51,20 @@ The decorative line drawings are the app's own minimalist character art
 (`assets/illustrations/friends/*/line/`), which are black-on-transparent masks —
 so opacity alone controls how present they feel.
 
+## Languages
+
+The site is translated into the same six languages the app ships, switched
+from the globe in the navigation and remembered per visitor.
+
+- `assets/js/i18n-data.js` holds the words, one object per language. It is
+  generated: the About page's paragraphs come straight from the app's own
+  `src/i18n/locales/`, so the two never drift.
+- `assets/js/i18n.js` applies them, sets `<html lang>` and flips `dir="rtl"`
+  for Arabic.
+- The markup carries a `data-i18n` key per translatable element. To add a
+  string: give the element a key, then add that key to all six languages.
+  A key missing from a language falls back to English rather than blanking.
+
 ## Notes
 
 - The **Download** links point at

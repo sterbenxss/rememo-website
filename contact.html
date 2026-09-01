@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr" data-title-key="c.h">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,16 +25,16 @@
     </a>
     <nav>
       <ul class="nav__links">
-        <li><a href="index.html">The App</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a data-i18n="nav.app" href="index.html">The App</a></li>
+        <li><a data-i18n="nav.features" href="features.html">Features</a></li>
+        <li><a data-i18n="nav.about" href="about.html">About</a></li>
+        <li><a data-i18n="nav.contact" href="contact.html" aria-current="page">Contact</a></li>
         <li class="nav__cta-mobile">
-          <a href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
+          <a data-i18n="nav.download" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
         </li>
       </ul>
     </nav>
-    <a class="btn btn--primary btn--sm nav__cta" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
+    <a data-i18n="nav.download" class="btn btn--primary btn--sm nav__cta" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
     <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
@@ -47,9 +47,9 @@
     <img class="doodle doodle--soft" src="assets/img/line/blob-happy.png" alt=""
          style="top: 18%; right: 8%; width: 160px;">
     <div class="container">
-      <p class="eyebrow">Contact</p>
-      <h1>Say hello.</h1>
-      <p class="lead">
+      <p data-i18n="c.eyebrow" class="eyebrow">Contact</p>
+      <h1 data-i18n="c.h">Say hello.</h1>
+      <p data-i18n="c.lead" class="lead">
         Questions, ideas, or something not working the way it should? Write to us. Every message is read
         by the people who made ReMemo.
       </p>
@@ -61,12 +61,12 @@
     <div class="container">
       <div class="prose center" style="text-align: center;">
         <div class="reveal">
-          <p class="eyebrow">Email</p>
+          <p data-i18n="c.email" class="eyebrow">Email</p>
           <p style="font-family: 'Poppins', sans-serif; font-size: clamp(1.15rem, 3vw, 1.7rem); color: var(--ink); word-break: break-word;">
             <a href="mailto:petrabenhissen@protonmail.com">petrabenhissen@protonmail.com</a>
           </p>
           <div class="btn-row" style="justify-content: center;">
-            <a class="btn btn--primary" href="mailto:petrabenhissen@protonmail.com?subject=ReMemo">Write to us</a>
+            <a data-i18n="c.btn" class="btn btn--primary" href="mailto:petrabenhissen@protonmail.com?subject=ReMemo">Write to us</a>
           </div>
         </div>
       </div>
@@ -74,24 +74,24 @@
       <div class="cards" style="max-width: 900px; margin-inline: auto;">
         <article class="card reveal">
           <div class="card__icon">💡</div>
-          <h3>Suggestions</h3>
-          <p>
+          <h3 data-i18n="c.k1.h">Suggestions</h3>
+          <p data-i18n="c.k1.p">
             Something you wish ReMemo did? Ideas from people who use it every day are
             what shape the next version.
           </p>
         </article>
         <article class="card reveal">
           <div class="card__icon">🐞</div>
-          <h3>Something broken?</h3>
-          <p>
+          <h3 data-i18n="c.k2.h">Something broken?</h3>
+          <p data-i18n="c.k2.p">
             Tell us what happened and which phone you use. The more detail, the faster
             it gets fixed.
           </p>
         </article>
         <article class="card reveal">
           <div class="card__icon">🔒</div>
-          <h3>Your data</h3>
-          <p>
+          <h3 data-i18n="c.k3.h">Your data</h3>
+          <p data-i18n="c.k3.p">
             ReMemo keeps everything on your device. There is no account, and nothing to
             collect, so there is nothing about you for us to look up.
           </p>
@@ -110,20 +110,22 @@
           <img src="assets/img/logo.png" alt="">
           ReMemo
         </a>
-        <p class="footer__tag">Redefining healthy productivity.</p>
+        <p data-i18n="hero.sub" class="footer__tag">Redefining healthy productivity.</p>
       </div>
       <nav class="footer__links">
-        <a href="index.html">The App</a>
-        <a href="features.html">Features</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
+        <a data-i18n="nav.app" href="index.html">The App</a>
+        <a data-i18n="nav.features" href="features.html">Features</a>
+        <a data-i18n="a.eyebrow" href="about.html">About</a>
+        <a data-i18n="nav.contact" href="contact.html">Contact</a>
+        <a data-i18n="nav.download" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
       </nav>
     </div>
-    <p class="footer__bottom">&copy; 2026 ReMemo. Made with care for people who forget to stop.</p>
+    <p data-i18n="foot.copy" class="footer__bottom">&copy; 2026 ReMemo. Made with care for people who forget to stop.</p>
   </div>
 </footer>
 
+<script src="assets/js/i18n-data.js"></script>
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

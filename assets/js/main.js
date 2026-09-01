@@ -51,3 +51,48 @@
     observer.observe(el);
   });
 })();
+
+/* ---------------------------------------------------------------------------
+ * The hero's cursor light.
+ *
+ * Only this one section has it. The pointer's position is eased toward rather
+ * than written straight through, so the light trails the cursor slightly the
+ * way the reference does, and it is written as CSS custom properties so the
+ * gradient itself stays in the stylesheet.
+ * ------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  var hero = document.querySelector('.hero');
+  var glow = hero && hero.querySelector('.hero__glow');
+  if (!glow) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Pointer light on a touch screen would only ever be a stuck blob.
+  if (!window.matchMedia('(hover: hover)').matches) return;
+
+  var targetX = 50, targetY = 40;   // percentages
+  var x = 50, y = 40;
+  var running = false;
+
+  function frame() {
+    x += (targetX - x) * 0.14;
+    y += (targetY - y) * 0.14;
+    glow.style.setProperty('--glow-x', x.toFixed(2) + '%');
+    glow.style.setProperty('--glow-y', y.toFixed(2) + '%');
+    if (Math.abs(targetX - x) > 0.05 || Math.abs(targetY - y) > 0.05) {
+      requestAnimationFrame(frame);
+    } else {
+      running = false;
+    }
+  }
+
+  hero.addEventListener('mousemove', function (event) {
+    var box = hero.getBoundingClientRect();
+    targetX = ((event.clientX - box.left) / box.width) * 100;
+    targetY = ((event.clientY - box.top) / box.height) * 100;
+    if (!running) {
+      running = true;
+      requestAnimationFrame(frame);
+    }
+  });
+})();

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr" data-title-key="hero.sub">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,17 +26,17 @@
 
     <nav>
       <ul class="nav__links">
-        <li><a href="index.html" aria-current="page">The App</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a data-i18n="nav.app" href="index.html" aria-current="page">The App</a></li>
+        <li><a data-i18n="nav.features" href="features.html">Features</a></li>
+        <li><a data-i18n="nav.about" href="about.html">About</a></li>
+        <li><a data-i18n="nav.contact" href="contact.html">Contact</a></li>
         <li class="nav__cta-mobile">
-          <a href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
+          <a data-i18n="nav.download" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
         </li>
       </ul>
     </nav>
 
-    <a class="btn btn--primary btn--sm nav__cta" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
+    <a data-i18n="nav.download" class="btn btn--primary btn--sm nav__cta" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
 
     <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
@@ -54,20 +54,22 @@
          style="bottom: 3%; right: 2%; width: 190px; --rot: -3deg;">
 
     <div class="container">
-      <div class="hero__grid">
+      <div class="hero__glow"></div>
+
+    <div class="hero__grid">
         <div>
-          <h1>Your reminder to<br>take a break</h1>
-          <p class="hero__sub">Redefining healthy productivity.</p>
-          <p class="hero__copy">
+          <h1 data-i18n="hero.title">Your reminder to<br>take a break</h1>
+          <p data-i18n="hero.sub" class="hero__sub">Redefining healthy productivity.</p>
+          <p data-i18n="hero.copy" class="hero__copy">
             When &ldquo;just 5 more min&rdquo; turns into hours. ReMemo reminds you to pause, move,
             hydrate and give your eyes a break. So you can take care of yourself while
             getting things done.
           </p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
-            <a class="btn btn--ghost" href="features.html">Features</a>
+            <a data-i18n="nav.download" class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
+            <a data-i18n="nav.features" class="btn btn--ghost" href="features.html">Features</a>
           </div>
-          <p class="note"><strong>Coming soon</strong> to Google Play.</p>
+          <p data-i18n="hero.note" class="note"><strong>Coming soon</strong> to Google Play.</p>
         </div>
 
         <div class="hero__art">
@@ -92,16 +94,16 @@
                style="width: min(340px, 80%); filter: brightness(0); opacity: 0.85;">
         </div>
         <div class="reveal">
-          <h2>If &ldquo;just 5 minutes&rdquo; ever turned into hours&hellip;</h2>
-          <p class="lead">You&rsquo;re not alone.</p>
-          <p>
+          <h2 data-i18n="prob.h">If &ldquo;just 5 minutes&rdquo; ever turned into hours&hellip;</h2>
+          <p data-i18n="prob.lead" class="lead">You&rsquo;re not alone.</p>
+          <p data-i18n="prob.p1">
             You get focused.<br>
             You get in the zone.<br>
             You tell yourself you&rsquo;ll take a break after this one thing.
           </p>
-          <p>And suddenly, hours have passed.</p>
-          <p>Your eyes are tired. Your neck is stiff. Your water is untouched.</p>
-          <p class="accent-line">You didn&rsquo;t forget to work. You forgot to stop.</p>
+          <p data-i18n="prob.p2">And suddenly, hours have passed.</p>
+          <p data-i18n="prob.p3">Your eyes are tired. Your neck is stiff. Your water is untouched.</p>
+          <p data-i18n="prob.accent" class="accent-line">You didn&rsquo;t forget to work. You forgot to stop.</p>
         </div>
       </div>
     </div>
@@ -113,12 +115,12 @@
          style="top: 12%; right: 6%; width: 230px;">
     <div class="container">
       <div class="measure reveal">
-        <h2>Redefining healthy productivity.</h2>
-        <p>
+        <h2 data-i18n="idea.h">Redefining healthy productivity.</h2>
+        <p data-i18n="idea.p">
           Being productive doesn&rsquo;t mean spending as many hours as possible in front of
           a screen.
         </p>
-        <p class="accent-line">
+        <p class="accent-line" data-i18n="idea.accent">
           It means knowing when to focus.<br>
           Knowing when to pause.<br>
           And giving yourself the chance to come back feeling better.
@@ -139,16 +141,16 @@
           </div>
         </div>
         <div class="reveal">
-          <h2>Meet ReMemo.</h2>
-          <p class="lead">The app that reminds you to take breaks.</p>
-          <p>
+          <h2 data-i18n="meet.h">Meet ReMemo.</h2>
+          <p data-i18n="meet.lead" class="lead">The app that reminds you to take breaks.</p>
+          <p data-i18n="meet.p">
             ReMemo is built for people who spend a big part of their day in front of a
             screen. But unlike a simple timer, ReMemo can base your reminders on your
             actual screen time, so breaks follow how much you have really been using
             your device, not just the clock.
           </p>
           <div class="btn-row">
-            <a class="btn btn--ghost" href="features.html">See all features</a>
+            <a data-i18n="meet.btn" class="btn btn--ghost" href="features.html">See all features</a>
           </div>
         </div>
       </div>
@@ -162,17 +164,19 @@
     <div class="container">
       <div class="split">
         <div class="reveal">
-          <h2>Not everyone works the same way.</h2>
-          <p>
+          <h2 data-i18n="way.h">Not everyone works the same way.</h2>
+          <p data-i18n="way.p">
             Maybe you want to be reminded based on your actual screen time.<br>
             Maybe you don&rsquo;t work on devices, so you prefer regular clock time.<br>
             Maybe you only want reminders to stretch, or to just drink water.
           </p>
-          <p class="accent-line">Choose how and what you want ReMemo to remind you.</p>
+          <p data-i18n="way.accent" class="accent-line">Choose how and what you want ReMemo to remind you.</p>
         </div>
         <div class="split__art reveal">
-          <img src="assets/img/cat-colour.png" alt=""
-               style="width: min(360px, 82%); margin-inline: auto;">
+          <img class="screen-shot only-wide" src="assets/img/screens/home-default.jpg"
+               alt="Reminder settings showing eye, water and stretch breaks with Screen time and General modes">
+          <img class="only-phone" src="assets/img/line/flower-work.png" alt=""
+               style="width: min(230px, 62%); margin-inline: auto;">
         </div>
       </div>
     </div>
@@ -182,16 +186,16 @@
   <section class="section section--warm">
     <div class="container">
       <div class="measure center reveal" style="text-align: center;">
-        <h2>Make ReMemo yours.</h2>
-        <p>
+        <h2 data-i18n="yours.h">Make ReMemo yours.</h2>
+        <p data-i18n="yours.p1">
           Customize ReMemo to match your personality. From characters and backgrounds
           to the sound of reminders.
         </p>
-        <p>
+        <p data-i18n="yours.p2">
           Choose between a colourful UI by default, or switch to a minimalist style
           when you want something more subtle.
         </p>
-        <p class="accent-line">Your reminders. Your style. Your ReMemo.</p>
+        <p data-i18n="yours.accent" class="accent-line">Your reminders. Your style. Your ReMemo.</p>
       </div>
 
       <div class="rail reveal" style="margin-top: 52px;">
@@ -214,9 +218,9 @@
          style="bottom: 6%; left: 5%; width: 150px;">
     <div class="container">
       <div class="measure center reveal" style="text-align: center;">
-        <p class="eyebrow">Languages</p>
-        <h2>ReMemo speaks your language.</h2>
-        <p>
+        <p data-i18n="langs.eyebrow" class="eyebrow">Languages</p>
+        <h2 data-i18n="langs.h">ReMemo speaks your language.</h2>
+        <p data-i18n="langs.p">
           The whole app, from reminders to the Collection, is translated into six
           languages. Pick yours in Settings and everything follows, including
           right-to-left layout for Arabic.
@@ -225,11 +229,11 @@
 
       <div class="langs reveal">
         <div class="lang">English</div>
-        <div class="lang">Espa&ntilde;ol <span>Spanish</span></div>
-        <div class="lang">Portugu&ecirc;s <span>Brazilian</span></div>
-        <div class="lang">Fran&ccedil;ais <span>French</span></div>
-        <div class="lang">&#20013;&#25991; <span>Simplified Chinese</span></div>
-        <div class="lang">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577; <span>Arabic</span></div>
+        <div class="lang">Espa&ntilde;ol</div>
+        <div class="lang">Portugu&ecirc;s</div>
+        <div class="lang">Fran&ccedil;ais</div>
+        <div class="lang">&#20013;&#25991;</div>
+        <div class="lang">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</div>
       </div>
     </div>
   </section>
@@ -242,14 +246,14 @@
          style="top: 8%; right: 7%; width: 180px;">
     <div class="container">
       <div class="reveal">
-        <h2>Don&rsquo;t wait for your body to remind you.</h2>
-        <p class="lead" style="max-width: 520px; margin-inline: auto;">
+        <h2 data-i18n="cta.h">Don&rsquo;t wait for your body to remind you.</h2>
+        <p data-i18n="cta.lead" class="lead" style="max-width: 520px; margin-inline: auto;">
           Let ReMemo remind you first.
         </p>
         <div class="btn-row" style="justify-content: center;">
-          <a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download ReMemo</a>
+          <a data-i18n="cta.btn" class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download ReMemo</a>
         </div>
-        <p class="note"><strong>Releasing soon</strong> on Google Play for Android.</p>
+        <p data-i18n="cta.note" class="note"><strong>Releasing soon</strong> on Google Play for Android.</p>
       </div>
     </div>
   </section>
@@ -264,20 +268,22 @@
           <img src="assets/img/logo.png" alt="">
           ReMemo
         </a>
-        <p class="footer__tag">Redefining healthy productivity.</p>
+        <p data-i18n="foot.tag" class="footer__tag">Redefining healthy productivity.</p>
       </div>
       <nav class="footer__links">
-        <a href="index.html">The App</a>
-        <a href="features.html">Features</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
+        <a data-i18n="nav.app" href="index.html">The App</a>
+        <a data-i18n="nav.features" href="features.html">Features</a>
+        <a data-i18n="a.eyebrow" href="about.html">About</a>
+        <a data-i18n="c.eyebrow" href="contact.html">Contact</a>
+        <a data-i18n="nav.download" href="https://play.google.com/store/apps/details?id=com.rememo.app">Download</a>
       </nav>
     </div>
-    <p class="footer__bottom">&copy; 2026 ReMemo. Made with care for people who forget to stop.</p>
+    <p data-i18n="foot.copy" class="footer__bottom">&copy; 2026 ReMemo. Made with care for people who forget to stop.</p>
   </div>
 </footer>
 
+<script src="assets/js/i18n-data.js"></script>
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

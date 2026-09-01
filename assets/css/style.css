@@ -251,6 +251,10 @@ p:last-child { margin-bottom: 0; }
   margin-top: 26px;
 }
 
+/* Paired artwork where the phone gets a different picture from the desktop. */
+.only-wide { display: block; }
+.only-phone { display: none; }
+
 .measure { max-width: 640px; }
 .measure-narrow { max-width: 540px; }
 .center { text-align: center; margin-inline: auto; }
@@ -302,6 +306,33 @@ p:last-child { margin-bottom: 0; }
   overflow: hidden;
 }
 
+/**
+ * The warm light that follows the pointer across the hero.
+ *
+ * Painted behind everything the hero draws (the drawings and the phone both
+ * sit over it, as in the reference), and only ever in this one section. The
+ * position comes from two custom properties the script updates; easing them
+ * rather than snapping is what gives the light its slight lag.
+ */
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    300px circle at var(--glow-x, 50%) var(--glow-y, 40%),
+    rgba(243, 222, 138, 0.92) 0%,
+    rgba(243, 222, 138, 0.55) 32%,
+    rgba(243, 222, 138, 0) 68%
+  );
+}
+.hero:hover .hero__glow { opacity: 1; }
+
+/* Above the glow, below the copy. */
+.hero .doodle { z-index: 1; }
+
 .hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
@@ -333,7 +364,12 @@ p:last-child { margin-bottom: 0; }
   padding: 9px;
   border-radius: 40px;
   background: #14161A;
-  box-shadow: 0 28px 54px rgba(17, 58, 93, 0.26);
+  /* Two shadows: a wide soft one for the lift, a tight dark one right under
+     the handset so the edge reads. A single diffuse shadow was so faint on the
+     pale hero that the phone looked pasted on. */
+  box-shadow:
+    0 42px 70px -14px rgba(17, 58, 93, 0.5),
+    0 14px 26px -6px rgba(17, 58, 93, 0.3);
 }
 /**
  * The screen carries the aspect, not the frame.
@@ -356,17 +392,17 @@ p:last-child { margin-bottom: 0; }
   height: 100%;
   object-fit: cover;
 }
-.phone__a { animation: style-a 12s ease-in-out infinite; }
-.phone__b { animation: style-b 12s ease-in-out infinite; }
+.phone__a { animation: style-a 6s ease-in-out infinite; }
+.phone__b { animation: style-b 6s ease-in-out infinite; }
 
 @keyframes style-a {
-  0%, 38% { opacity: 1; }
-  50%, 88% { opacity: 0; }
+  0%, 36% { opacity: 1; }
+  50%, 86% { opacity: 0; }
   100% { opacity: 1; }
 }
 @keyframes style-b {
-  0%, 38% { opacity: 0; }
-  50%, 88% { opacity: 1; }
+  0%, 36% { opacity: 0; }
+  50%, 86% { opacity: 1; }
   100% { opacity: 0; }
 }
 /* --------------------------------------------------------------------------
@@ -678,16 +714,32 @@ p:last-child { margin-bottom: 0; }
      personality, and dropping them left whole sections looking like plain
      text. Anything that would land on the copy is opted out with
      .doodle--desktop instead. */
-  /* Pinned to one corner rather than the tuned desktop positions, which at
-     phone width land in the middle of the copy. */
+  .only-wide { display: none; }
+  .only-phone { display: block; }
+
+  /**
+   * Decoration gets a band of its own at the bottom of the section.
+   *
+   * Pinning to a corner was not enough: copy reaches the corners too, and the
+   * drawings ended up sitting on the words. Any section carrying one is given
+   * room below its content, and the drawings sit in that empty band, first on
+   * the left and second on the right so two never stack.
+   */
+  .hero:has(> .doodle),
+  .section:has(> .doodle),
+  .page-head:has(> .doodle),
+  .cta:has(> .doodle) { padding-bottom: 148px; }
+
   .doodle {
-    width: 104px !important;
-    opacity: 0.3;
+    width: 96px !important;
+    opacity: 0.32;
     top: auto !important;
+    bottom: 26px !important;
     left: auto !important;
-    right: 10px !important;
-    bottom: 14px !important;
+    right: 22px !important;
   }
+  .doodle:first-of-type { left: 22px !important; right: auto !important; }
+  .doodle:nth-of-type(2) { left: auto !important; right: 22px !important; }
   .doodle--desktop { display: none; }
 }
 
@@ -732,4 +784,74 @@ p:last-child { margin-bottom: 0; }
   .phone__b { opacity: 0; }
   .rail__track { animation: none; }
   .btn:hover, .card:hover { transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Language switcher
+   -------------------------------------------------------------------------- */
+.lang-switch { position: relative; flex: none; }
+
+.lang-switch__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid rgba(17, 58, 93, 0.16);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--body);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.lang-switch__button:hover { background: rgba(129, 164, 205, 0.16); color: var(--ink); }
+
+.lang-switch__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-end: 0;
+  min-width: 172px;
+  padding: 7px;
+  border-radius: var(--r-md);
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 38px rgba(17, 58, 93, 0.16);
+  display: none;
+  z-index: 120;
+}
+.lang-switch.is-open .lang-switch__menu { display: block; }
+
+.lang-switch__menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: transparent;
+  text-align: start;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.94rem;
+  color: var(--body);
+  cursor: pointer;
+}
+.lang-switch__menu button:hover { background: rgba(129, 164, 205, 0.16); color: var(--ink); }
+.lang-switch__menu button[aria-current='true'] { background: var(--sky); color: var(--ink); }
+
+/* --------------------------------------------------------------------------
+   Right to left (Arabic)
+
+   Only the handful of places that hard-code a side need saying again: the
+   layout itself is written with logical properties, so most of it mirrors on
+   its own.
+   -------------------------------------------------------------------------- */
+[dir='rtl'] .phone-pair img:first-child { transform: rotate(8deg) translateX(-18%); }
+[dir='rtl'] .phone-pair img:last-child { transform: rotate(2deg); }
+[dir='rtl'] .doodle { transform: scaleX(-1); }
+[dir='rtl'] .doodle--float { animation: none; }
+[dir='rtl'] .rail__track { animation-direction: reverse; }
+
+@media (max-width: 900px) {
+  .lang-switch { margin-inline-start: auto; }
+  .lang-switch__menu { inset-inline-end: 0; }
 }
