@@ -855,3 +855,25 @@ p:last-child { margin-bottom: 0; }
   .lang-switch { margin-inline-start: auto; }
   .lang-switch__menu { inset-inline-end: 0; }
 }
+
+/* --------------------------------------------------------------------------
+   Legal pages (privacy, terms)
+
+   Long documents whose text comes from the app's own locale files, so the
+   website and the app say the same thing in every language.
+   -------------------------------------------------------------------------- */
+.legal h2 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  margin-top: 2em;
+}
+.legal h2:first-child { margin-top: 0; }
+.legal h3 {
+  font-size: 1.02rem;
+  margin-top: 1.6em;
+  color: var(--primary);
+}
+.legal p { font-size: 1rem; }
+.page-head .note { max-width: 640px; margin-inline: auto; }
+
+/* The translation notice is empty on the English pages. */
+.page-head .note:empty { display: none; }
