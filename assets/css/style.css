@@ -34,6 +34,15 @@
 
   --container: 1180px;
   --nav-h: 76px;
+
+  /* Handset frames. One colour and one width for every screenshot on the
+     site, so the hero phone, the tilted pair and the rails all read as the
+     same device. The width is fluid because a fixed 7px bezel around a 300px
+     shot on a desktop becomes a 7px bezel around a 168px shot on a phone,
+     which is nearly twice as heavy for the same picture. */
+  --frame: #C7CFD9;
+  --frame-line: #AEB9C6;
+  --frame-w: clamp(3px, 0.55vw, 7px);
 }
 
 /* --------------------------------------------------------------------------
@@ -290,6 +299,20 @@ p:last-child { margin-bottom: 0; }
 }
 .doodle--soft { opacity: 0.28; }
 
+/**
+ * The flower beside "Redefining healthy productivity".
+ *
+ * Placed on the *end* side rather than a fixed physical one, so it mirrors
+ * with the text: right in English, left in Arabic. Pinned with a plain
+ * `right` it stayed on the right in Arabic, where the reader arrives from
+ * the other side and it sat in the way rather than out of it.
+ */
+.doodle--idea {
+  top: 12%;
+  inset-inline-end: 6%;
+  width: 230px;
+}
+
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
   50% { transform: translateY(-14px) rotate(var(--rot, 0deg)); }
@@ -361,9 +384,13 @@ p:last-child { margin-bottom: 0; }
 .phone {
   width: min(304px, 82%);
   margin-inline: auto;
-  padding: 9px;
-  border-radius: 40px;
-  background: #14161A;
+  padding: clamp(4px, 0.72vw, 9px);
+  border-radius: clamp(26px, 2.9vw, 40px);
+  background: var(--frame);
+  /* A pale bezel on a pale hero loses its edge, which the dark one never
+     needed. The hairline gives it back without going back to near-black. */
+  outline: 1px solid var(--frame-line);
+  outline-offset: -1px;
   /* Two shadows: a wide soft one for the lift, a tight dark one right under
      the handset so the edge reads. A single diffuse shadow was so faint on the
      pale hero that the phone looked pasted on. */
@@ -382,7 +409,7 @@ p:last-child { margin-bottom: 0; }
 .phone__screen {
   position: relative;
   aspect-ratio: 9 / 20;
-  border-radius: 32px;
+  border-radius: clamp(20px, 2.2vw, 32px);
   overflow: hidden;
 }
 .phone img {
@@ -428,9 +455,9 @@ p:last-child { margin-bottom: 0; }
 }
 .phone-pair img {
   width: 58%;
-  border-radius: 26px;
+  border-radius: clamp(16px, 1.9vw, 26px);
   box-shadow: 0 22px 48px rgba(17, 58, 93, 0.2);
-  border: 8px solid #14161A;
+  border: var(--frame-w) solid var(--frame);
 }
 .phone-pair img:first-child {
   transform: rotate(-8deg) translateX(18%);
@@ -440,9 +467,9 @@ p:last-child { margin-bottom: 0; }
 .phone-pair img:last-child { transform: rotate(-2deg); z-index: 2; }
 
 .screen-shot {
-  border-radius: 22px;
+  border-radius: clamp(14px, 1.6vw, 22px);
   box-shadow: 0 20px 44px rgba(17, 58, 93, 0.18);
-  border: 7px solid #14161A;
+  border: var(--frame-w) solid var(--frame);
   width: min(300px, 100%);
 }
 
@@ -472,6 +499,24 @@ p:last-child { margin-bottom: 0; }
 }
 .rail__track .dup { display: none; }
 .rail__track img { width: min(240px, 44vw); flex: none; }
+
+/**
+ * A rail that drifts at every width, not only on phones.
+ *
+ * The plain .rail stops moving once the set fits side by side. This one keeps
+ * going, which is what lets it carry more screenshots than a row has room
+ * for. Selectors are two-deep on purpose: that outranks both the base rules
+ * and the phone block, so one declaration covers every width.
+ */
+.rail--marquee { overflow: hidden; }
+.rail--marquee .rail__track {
+  width: max-content;
+  justify-content: flex-start;
+  /* Slower than the phone rail: the track is twice as long, and the same
+     duration would have it sprinting. */
+  animation: rail-drift 64s linear infinite;
+}
+.rail--marquee .rail__track .dup { display: block; }
 
 @keyframes rail-drift {
   from { transform: translateX(0); }
@@ -766,6 +811,14 @@ p:last-child { margin-bottom: 0; }
   .feature__art .doodle-inline { width: min(148px, 42%); }
 }
 
+@media (max-width: 900px) {
+  /* On a phone the generic rule puts the first drawing in a section on the
+     left. This one belongs on the end side instead, matching where it sits
+     on a wide screen. */
+  .doodle.doodle--idea { left: auto !important; right: 22px !important; }
+  [dir='rtl'] .doodle.doodle--idea { right: auto !important; left: 22px !important; }
+}
+
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .container, .nav__inner { padding-inline: 20px; }
@@ -782,7 +835,8 @@ p:last-child { margin-bottom: 0; }
   .doodle--float,
   .phone__a, .phone__b { animation: none; }
   .phone__b { opacity: 0; }
-  .rail__track { animation: none; }
+  .rail__track,
+  .rail--marquee .rail__track { animation: none; }
   .btn:hover, .card:hover { transform: none; }
 }
 
@@ -877,3 +931,142 @@ p:last-child { margin-bottom: 0; }
 
 /* The translation notice is empty on the English pages. */
 .page-head .note:empty { display: none; }
+
+/* --------------------------------------------------------------------------
+   Social links
+
+   Icon buttons rather than a text list: two of them, both instantly
+   recognisable by their mark, and a row of words would compete with the
+   footer navigation right beside it.
+   -------------------------------------------------------------------------- */
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.88);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+.social svg { width: 19px; height: 19px; display: block; }
+.social:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.42);
+  transform: translateY(-2px);
+  /* The footer underlines links on hover; on an icon that draws a line under
+     the circle rather than marking anything. */
+  text-decoration: none;
+}
+.footer a.social:hover { text-decoration: none; }
+
+/* --------------------------------------------------------------------------
+   Blog
+
+   An index of cards and the article pages themselves. The articles are long
+   reads, so the column is narrower than the rest of the site and the type is
+   a touch larger.
+   -------------------------------------------------------------------------- */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 46px;
+  position: relative;
+  z-index: 2;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(17, 58, 93, 0.1); }
+
+.post-card__art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+  background: var(--sky-pale);
+  border-bottom: 1px solid var(--line);
+}
+.post-card__art img {
+  width: 128px;
+  opacity: 0.55;
+  filter: brightness(0) saturate(100%);
+}
+.post-card__body { padding: 26px 28px 30px; }
+.post-card h3 { margin-bottom: 8px; }
+.post-card p { font-size: 0.98rem; margin-bottom: 0; }
+.post-card .eyebrow { margin-bottom: 10px; }
+
+/* The article itself ---------------------------------------------------- */
+.article {
+  max-width: 720px;
+  margin-inline: auto;
+  position: relative;
+  z-index: 2;
+}
+.article h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  margin-top: 1.9em;
+}
+.article h3 {
+  font-size: clamp(1.12rem, 1.8vw, 1.3rem);
+  margin-top: 1.7em;
+  color: var(--primary);
+}
+.article ul { padding-inline-start: 1.2em; margin: 0 0 1.1em; }
+.article li { margin-bottom: 0.45em; }
+.article ol { padding-inline-start: 1.3em; margin: 0 0 1.1em; }
+.article em { color: var(--ink); font-style: italic; }
+
+/* A drawing between sections, at the width of the column so it never fights
+   the text for the margin the way an absolutely placed doodle would. */
+.article__art {
+  display: flex;
+  justify-content: center;
+  margin: 42px 0;
+}
+.article__art img {
+  width: min(230px, 62%);
+  opacity: 0.5;
+  filter: brightness(0) saturate(100%);
+}
+.article__art--row { gap: 26px; flex-wrap: wrap; }
+.article__art--row img { width: min(150px, 36%); }
+
+/* The closing "how ReMemo helps" block, marked off from the article body. */
+.article__cta {
+  margin-top: 52px;
+  padding: 34px 32px;
+  border-radius: var(--r-lg);
+  background: var(--warm);
+  border: 1px solid var(--line);
+}
+.article__cta h2 { margin-top: 0; }
+
+.post-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+}
+
+@media (max-width: 560px) {
+  .article__cta { padding: 26px 22px; }
+  .post-card__art { height: 158px; }
+  .post-card__art img { width: 104px; }
+}
