@@ -1128,8 +1128,11 @@ p:last-child { margin-bottom: 0; }
   margin: 42px 0;
 }
 .article__art img {
-  width: min(230px, 62%);
-  opacity: 0.5;
+  width: min(260px, 66%);
+  /* 0.5 was the decorative weight used for the doodles in the page margins.
+     These sit in the reading column and are meant to be looked at, and at that
+     weight a single-line drawing reads as a smudge. */
+  opacity: 0.72;
   filter: brightness(0) saturate(100%);
 }
 .article__art--row { gap: 26px; flex-wrap: wrap; }
