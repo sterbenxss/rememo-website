@@ -510,6 +510,20 @@ p:last-child { margin-bottom: 0; }
  */
 .rail--marquee {
   overflow: hidden;
+  /**
+   * The rail is laid out left-to-right whatever the page direction is.
+   *
+   * This has to sit on the rail, not on the track inside it: `direction`
+   * governs how a box lays out its children, and the track is a max-content
+   * box overflowing its parent, so it is the PARENT that decides which edge it
+   * is pinned to. Under rtl the track hung off the right edge and overflowed
+   * leftwards while the animation still translated it further left, so the
+   * right-hand side emptied out a little more every second and the loop looked
+   * like it had stopped. Measured: the uncovered edge grew to 1578px by the
+   * end of one cycle. Screenshots have no reading order to mirror, so pinning
+   * the whole rail to LTR is both the fix and the intended behaviour.
+   */
+  direction: ltr;
   /* Both edges dissolve into the section instead of being sliced off by the
      container. 50px of fade on each side, in the mask rather than an overlaid
      gradient, so it works over whatever colour the section happens to be. */
