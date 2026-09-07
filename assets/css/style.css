@@ -508,14 +508,41 @@ p:last-child { margin-bottom: 0; }
  * for. Selectors are two-deep on purpose: that outranks both the base rules
  * and the phone block, so one declaration covers every width.
  */
-.rail--marquee { overflow: hidden; }
+.rail--marquee {
+  overflow: hidden;
+  /* Both edges dissolve into the section instead of being sliced off by the
+     container. 50px of fade on each side, in the mask rather than an overlaid
+     gradient, so it works over whatever colour the section happens to be. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 50px, #000 calc(100% - 50px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 50px, #000 calc(100% - 50px), transparent 100%);
+}
 .rail--marquee .rail__track {
   width: max-content;
   justify-content: flex-start;
   /* Slower than the phone rail: the track is twice as long, and the same
      duration would have it sprinting. */
   animation: rail-drift 64s linear infinite;
+  /**
+   * Spacing by margin, not by `gap`, and this is what makes the loop seamless.
+   *
+   * With `gap`, a track of 2N items is 2N images plus 2N-1 gaps, so half of it
+   * is N images plus N-and-a-half gaps - half a gap short of where the copy
+   * begins. Every cycle jumped sideways by ~11px. A trailing margin on each
+   * image makes the track exactly 2N equal cells, and -50% lands the duplicate
+   * precisely where the original started.
+   */
+  gap: 0;
 }
+.rail--marquee .rail__track img { margin-inline-end: 22px; }
+/**
+ * No inline padding on the marquee track.
+ *
+ * The phone rule adds 20px either side, which is 40px the duplicate set does
+ * not account for - measured, the loop jumped 20px every cycle on a phone
+ * while sitting perfectly seamless on desktop. The mask fades the edges now,
+ * so the padding was only ever protecting against the hard cut it replaced.
+ */
+.rail--marquee .rail__track { padding-inline: 0; }
 .rail--marquee .rail__track .dup { display: block; }
 
 @keyframes rail-drift {
@@ -667,6 +694,47 @@ p:last-child { margin-bottom: 0; }
   text-align: center;
 }
 .page-head p { max-width: 620px; margin-inline: auto; }
+
+/**
+ * The hero's warm light, on every other page's opening section.
+ *
+ * Same gradient and same size as .hero__glow, but it roams on its own instead
+ * of following the pointer: there is no hero art here for a cursor to play
+ * against, and a light that only appears on hover would never be seen on a
+ * phone at all. The hero itself is untouched.
+ */
+.page-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.page-glow::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 600px;
+  height: 600px;
+  margin: -300px 0 0 -300px;
+  background: radial-gradient(
+    circle,
+    rgba(243, 222, 138, 0.92) 0%,
+    rgba(243, 222, 138, 0.55) 32%,
+    rgba(243, 222, 138, 0) 68%
+  );
+  animation: glow-roam 34s ease-in-out infinite;
+}
+
+/* Four corners of a slow loop, eased so it never travels at a constant speed
+   and never quite retraces the same path on the way back. */
+@keyframes glow-roam {
+  0%, 100% { transform: translate(-58%, -30%); }
+  27%      { transform: translate(46%, -14%); }
+  52%      { transform: translate(62%, 26%); }
+  78%      { transform: translate(-24%, 34%); }
+}
 
 /* --------------------------------------------------------------------------
    Closing CTA
@@ -837,6 +905,7 @@ p:last-child { margin-bottom: 0; }
   .phone__b { opacity: 0; }
   .rail__track,
   .rail--marquee .rail__track { animation: none; }
+  .page-glow::before { animation: none; }
   .btn:hover, .card:hover { transform: none; }
 }
 
@@ -903,7 +972,9 @@ p:last-child { margin-bottom: 0; }
 [dir='rtl'] .phone-pair img:last-child { transform: rotate(2deg); }
 [dir='rtl'] .doodle { transform: scaleX(-1); }
 [dir='rtl'] .doodle--float { animation: none; }
-[dir='rtl'] .rail__track { animation-direction: reverse; }
+/* The rail deliberately drifts the same way in Arabic as in English. Mirroring
+   it made the two layouts feel like different pages, and unlike text there is
+   no reading order in a row of screenshots to mirror. */
 
 @media (max-width: 900px) {
   .lang-switch { margin-inline-start: auto; }
@@ -927,6 +998,21 @@ p:last-child { margin-bottom: 0; }
   color: var(--primary);
 }
 .legal p { font-size: 1rem; }
+.legal div[data-i18n] > p:last-child { margin-bottom: 0; }
+.legal ul {
+  margin: 0 0 1.1em;
+  padding-inline-start: 1.25em;
+}
+.legal li { font-size: 1rem; margin-bottom: 0.4em; }
+.legal li:last-child { margin-bottom: 0; }
+
+/* The published date, under the page title. */
+.page-head .meta {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: var(--body-soft);
+  margin-top: 14px;
+}
 .page-head .note { max-width: 640px; margin-inline: auto; }
 
 /* The translation notice is empty on the English pages. */
@@ -1048,6 +1134,21 @@ p:last-child { margin-bottom: 0; }
 }
 .article__art--row { gap: 26px; flex-wrap: wrap; }
 .article__art--row img { width: min(150px, 36%); }
+
+/**
+ * The four stretch diagrams are not line art like the characters are.
+ *
+ * They are black drawings on a soft WHITE backing - a third of every one of
+ * those files is low-alpha white haze, invisible on a white artboard and the
+ * whole point of the export. `brightness(0)` turns that haze black, and the
+ * exercise disappears inside a grey cloud. Measured: 27-36% solid, 31-35%
+ * haze, against 3% and 1% for a real line drawing. So they are shown as drawn.
+ */
+.article__art--diagram img {
+  filter: none;
+  opacity: 0.92;
+  width: min(210px, 44%);
+}
 
 /* The closing "how ReMemo helps" block, marked off from the article body. */
 .article__cta {
