@@ -281,7 +281,9 @@ window.REMEMO_I18N = {
   "b3.k37": "Keep some nearby, drink regularly, and use your breaks as a simple reminder to hydrate.",
   "b3.k38": "<em>Take a break. Drink some water. Then get back to what matters.</em>",
   "f.soon.chipNew": "Just released",
-  "f.c1.store": "Get it on Microsoft Store"
+  "f.c1.store": "Get it on Microsoft Store",
+  "f.c1.tag": "On your computer",
+  "f.c2.tag": "Take the break"
  },
  "es": {
   "nav.app": "La app",
@@ -556,7 +558,9 @@ window.REMEMO_I18N = {
   "b3.k37": "Ten agua cerca, bebe con regularidad y usa tus descansos como un recordatorio sencillo para hidratarte.",
   "b3.k38": "<em>Haz una pausa. Bebe agua. Y vuelve a lo que importa.</em>",
   "f.soon.chipNew": "Recién lanzado",
-  "f.c1.store": "Consíguelo en Microsoft Store"
+  "f.c1.store": "Consíguelo en Microsoft Store",
+  "f.c1.tag": "En tu ordenador",
+  "f.c2.tag": "Haz el descanso"
  },
  "pt": {
   "nav.app": "O app",
@@ -831,7 +835,9 @@ window.REMEMO_I18N = {
   "b3.k37": "Mantenha água por perto, beba com regularidade e use as suas pausas como um lembrete simples para se hidratar.",
   "b3.k38": "<em>Faça uma pausa. Beba água. Depois volte ao que importa.</em>",
   "f.soon.chipNew": "Acabou de sair",
-  "f.c1.store": "Baixe na Microsoft Store"
+  "f.c1.store": "Baixe na Microsoft Store",
+  "f.c1.tag": "No seu computador",
+  "f.c2.tag": "Faça a pausa"
  },
  "fr": {
   "nav.app": "L'app",
@@ -1106,7 +1112,9 @@ window.REMEMO_I18N = {
   "b3.k37": "Gardez de l’eau à côté de vous, buvez régulièrement et servez-vous de vos pauses comme d’un rappel tout simple.",
   "b3.k38": "<em>Faites une pause. Buvez de l’eau. Puis revenez à l’essentiel.</em>",
   "f.soon.chipNew": "Tout juste sorti",
-  "f.c1.store": "Disponible sur Microsoft Store"
+  "f.c1.store": "Disponible sur Microsoft Store",
+  "f.c1.tag": "Sur votre ordinateur",
+  "f.c2.tag": "Faites la pause"
  },
  "zh": {
   "nav.app": "应用",
@@ -1381,7 +1389,9 @@ window.REMEMO_I18N = {
   "b3.k37": "把水放在手边，规律地喝，并把休息当作补水的简单提醒。",
   "b3.k38": "<em>休息一下。喝口水。然后回到真正重要的事情上。</em>",
   "f.soon.chipNew": "刚刚发布",
-  "f.c1.store": "前往 Microsoft Store 获取"
+  "f.c1.store": "前往 Microsoft Store 获取",
+  "f.c1.tag": "在你的电脑上",
+  "f.c2.tag": "好好休息"
  },
  "ar": {
   "nav.app": "التطبيق",
@@ -1656,6 +1666,8 @@ window.REMEMO_I18N = {
   "b3.k37": "أبقِ الماء قريبًا، واشرب بانتظام، واجعل استراحاتك تذكيرًا بسيطًا بالترطيب.",
   "b3.k38": "<em>خذ استراحة. اشرب بعض الماء. ثم عُد إلى ما يهمّ.</em>",
   "f.soon.chipNew": "صدر للتو",
-  "f.c1.store": "احصل عليه من Microsoft Store"
+  "f.c1.store": "احصل عليه من Microsoft Store",
+  "f.c1.tag": "على حاسوبك",
+  "f.c2.tag": "خذ استراحتك"
  }
 };
