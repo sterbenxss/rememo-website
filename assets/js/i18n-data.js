@@ -77,10 +77,10 @@ window.REMEMO_I18N = {
   "f.soon.p": "We&rsquo;re building more ways to make taking breaks easier, more engaging, and harder to forget.",
   "f.c1.h": "Desktop version",
   "f.c1.p1": "Your screen time shouldn&rsquo;t stop at your phone.",
-  "f.c1.p2": "A desktop version of ReMemo is coming, bringing your reminders directly to your computer while you work, so you can stay focused without losing track of how long you&rsquo;ve been in front of your screen.",
+  "f.c1.p2": "ReMemo is now on your computer too. It brings your reminders directly to your desktop while you work, so you can stay focused without losing track of how long you&rsquo;ve been in front of your screen.",
   "f.c2.h": "No more &ldquo;Skip break&rdquo;",
   "f.c2.p1": "Sometimes we know we should take a break&hellip; and still press Skip.",
-  "f.c2.p2": "We&rsquo;re working on a future version where you won&rsquo;t be able to simply skip your break. Because ReMemo isn&rsquo;t here to help you work through every reminder. It&rsquo;s here to help you actually stop.",
+  "f.c2.p2": "Now you can turn the skip button off in Settings, so a break can only be finished. Because ReMemo isn&rsquo;t here to help you work through every reminder. It&rsquo;s here to help you actually stop.",
   "f.c3.h": "Custom reminder rules",
   "f.c3.p1": "Your day does not always follow the same shape.",
   "f.c3.p2": "Soon you will be able to set your own rules: schedule a reminder for a particular time of day, or start a timer when you sit down and let ReMemo count from there.",
@@ -279,7 +279,9 @@ window.REMEMO_I18N = {
   "b3.k35": "Make Hydration a Habit",
   "b3.k36": "You don&rsquo;t need to wait until you&rsquo;re exhausted or extremely thirsty to reach for water.",
   "b3.k37": "Keep some nearby, drink regularly, and use your breaks as a simple reminder to hydrate.",
-  "b3.k38": "<em>Take a break. Drink some water. Then get back to what matters.</em>"
+  "b3.k38": "<em>Take a break. Drink some water. Then get back to what matters.</em>",
+  "f.soon.chipNew": "Just released",
+  "f.c1.store": "Get it on Microsoft Store"
  },
  "es": {
   "nav.app": "La app",
@@ -350,10 +352,10 @@ window.REMEMO_I18N = {
   "f.soon.p": "Estamos creando m&aacute;s formas de que descansar sea f&aacute;cil, entretenido y dif&iacute;cil de olvidar.",
   "f.c1.h": "Versi&oacute;n de escritorio",
   "f.c1.p1": "Tu tiempo de pantalla no acaba en el m&oacute;vil.",
-  "f.c1.p2": "Llega una versi&oacute;n de escritorio de ReMemo que llevar&aacute; los recordatorios directamente a tu ordenador mientras trabajas, para que sigas concentrado sin perder la cuenta del rato que llevas frente a la pantalla.",
+  "f.c1.p2": "ReMemo ya está también en tu ordenador. Lleva los recordatorios directamente a tu escritorio mientras trabajas, para que sigas concentrado sin perder la cuenta del rato que llevas frente a la pantalla.",
   "f.c2.h": "Se acab&oacute; el &laquo;Saltar descanso&raquo;",
   "f.c2.p1": "A veces sabemos que deber&iacute;amos descansar&hellip; y aun as&iacute; pulsamos Saltar.",
-  "f.c2.p2": "Estamos trabajando en una versi&oacute;n futura en la que no podr&aacute;s saltarte el descanso sin m&aacute;s. Porque ReMemo no est&aacute; aqu&iacute; para ayudarte a trabajar a trav&eacute;s de cada aviso, sino para ayudarte a parar de verdad.",
+  "f.c2.p2": "Ahora puedes desactivar el botón de saltar en Ajustes, y así un descanso solo se puede terminar. Porque ReMemo no está aquí para ayudarte a trabajar a través de cada aviso, sino para ayudarte a parar de verdad.",
   "f.c3.h": "Reglas de recordatorio a medida",
   "f.c3.p1": "Tu d&iacute;a no siempre tiene la misma forma.",
   "f.c3.p2": "Pronto podr&aacute;s definir tus propias reglas: programar un recordatorio a una hora concreta o iniciar un temporizador al sentarte y dejar que ReMemo cuente desde ah&iacute;.",
@@ -552,7 +554,9 @@ window.REMEMO_I18N = {
   "b3.k35": "Haz de la hidratación un hábito",
   "b3.k36": "No hace falta esperar a estar agotado o muerto de sed para coger el vaso.",
   "b3.k37": "Ten agua cerca, bebe con regularidad y usa tus descansos como un recordatorio sencillo para hidratarte.",
-  "b3.k38": "<em>Haz una pausa. Bebe agua. Y vuelve a lo que importa.</em>"
+  "b3.k38": "<em>Haz una pausa. Bebe agua. Y vuelve a lo que importa.</em>",
+  "f.soon.chipNew": "Recién lanzado",
+  "f.c1.store": "Consíguelo en Microsoft Store"
  },
  "pt": {
   "nav.app": "O app",
@@ -623,10 +627,10 @@ window.REMEMO_I18N = {
   "f.soon.p": "Estamos criando mais formas de tornar as pausas f&aacute;ceis, envolventes e dif&iacute;ceis de esquecer.",
   "f.c1.h": "Vers&atilde;o para computador",
   "f.c1.p1": "Seu tempo de tela n&atilde;o para no celular.",
-  "f.c1.p2": "Vem a&iacute; uma vers&atilde;o do ReMemo para computador, levando os lembretes direto para a sua m&aacute;quina enquanto voc&ecirc; trabalha, para manter o foco sem perder a no&ccedil;&atilde;o de quanto tempo j&aacute; passou diante da tela.",
+  "f.c1.p2": "O ReMemo agora também está no seu computador. Ele leva os lembretes direto para a sua área de trabalho enquanto você trabalha, para manter o foco sem perder a noção de quanto tempo já passou diante da tela.",
   "f.c2.h": "Adeus, &ldquo;Pular pausa&rdquo;",
   "f.c2.p1": "&Agrave;s vezes sabemos que dever&iacute;amos parar&hellip; e mesmo assim clicamos em Pular.",
-  "f.c2.p2": "Estamos trabalhando numa vers&atilde;o futura em que n&atilde;o vai dar para simplesmente pular a pausa. Porque o ReMemo n&atilde;o est&aacute; aqui para ajudar voc&ecirc; a atravessar cada lembrete, e sim para ajudar voc&ecirc; a parar de verdade.",
+  "f.c2.p2": "Agora você pode desativar o botão de pular em Configurações, e assim uma pausa só pode ser concluída. Porque o ReMemo não está aqui para ajudar você a atravessar cada lembrete, e sim para ajudar você a parar de verdade.",
   "f.c3.h": "Regras de lembrete personalizadas",
   "f.c3.p1": "Seu dia nem sempre tem o mesmo formato.",
   "f.c3.p2": "Em breve voc&ecirc; vai poder definir suas pr&oacute;prias regras: agendar um lembrete para um hor&aacute;rio espec&iacute;fico ou iniciar um cron&ocirc;metro ao sentar e deixar o ReMemo contar a partir dali.",
@@ -825,7 +829,9 @@ window.REMEMO_I18N = {
   "b3.k35": "Faça da hidratação um hábito",
   "b3.k36": "Você não precisa esperar até estar exausto ou com muita sede para pegar a água.",
   "b3.k37": "Mantenha água por perto, beba com regularidade e use as suas pausas como um lembrete simples para se hidratar.",
-  "b3.k38": "<em>Faça uma pausa. Beba água. Depois volte ao que importa.</em>"
+  "b3.k38": "<em>Faça uma pausa. Beba água. Depois volte ao que importa.</em>",
+  "f.soon.chipNew": "Acabou de sair",
+  "f.c1.store": "Baixe na Microsoft Store"
  },
  "fr": {
   "nav.app": "L'app",
@@ -896,10 +902,10 @@ window.REMEMO_I18N = {
   "f.soon.p": "Nous pr&eacute;parons d&rsquo;autres fa&ccedil;ons de rendre les pauses plus simples, plus engageantes et plus difficiles &agrave; oublier.",
   "f.c1.h": "Version ordinateur",
   "f.c1.p1": "Votre temps d&rsquo;&eacute;cran ne s&rsquo;arr&ecirc;te pas au t&eacute;l&eacute;phone.",
-  "f.c1.p2": "Une version ordinateur de ReMemo arrive&nbsp;: vos rappels directement sur votre poste de travail, pour rester concentr&eacute; sans perdre le fil du temps pass&eacute; devant l&rsquo;&eacute;cran.",
+  "f.c1.p2": "ReMemo est désormais aussi sur votre ordinateur. Vos rappels arrivent directement sur votre bureau pendant que vous travaillez, pour rester concentré sans perdre le fil du temps passé devant l&rsquo;écran.",
   "f.c2.h": "Fini le &laquo;&nbsp;Passer la pause&nbsp;&raquo;",
   "f.c2.p1": "Parfois on sait qu&rsquo;il faudrait s&rsquo;arr&ecirc;ter&hellip; et on appuie quand m&ecirc;me sur Passer.",
-  "f.c2.p2": "Nous pr&eacute;parons une version o&ugrave; il ne sera plus possible de simplement passer sa pause. Parce que ReMemo n&rsquo;est pas l&agrave; pour vous aider &agrave; traverser chaque rappel, mais pour vous aider &agrave; vous arr&ecirc;ter vraiment.",
+  "f.c2.p2": "Vous pouvez désormais désactiver le bouton Passer dans les réglages&nbsp;: une pause ne peut alors plus qu&rsquo;être terminée. Parce que ReMemo n&rsquo;est pas là pour vous aider à traverser chaque rappel, mais pour vous aider à vous arrêter vraiment.",
   "f.c3.h": "R&egrave;gles de rappel personnalis&eacute;es",
   "f.c3.p1": "Votre journ&eacute;e n&rsquo;a pas toujours la m&ecirc;me forme.",
   "f.c3.p2": "Bient&ocirc;t, vous pourrez d&eacute;finir vos propres r&egrave;gles&nbsp;: programmer un rappel &agrave; une heure pr&eacute;cise, ou lancer un minuteur en vous asseyant et laisser ReMemo compter &agrave; partir de l&agrave;.",
@@ -1098,7 +1104,9 @@ window.REMEMO_I18N = {
   "b3.k35": "Faites de l’hydratation une habitude",
   "b3.k36": "Nul besoin d’attendre d’être épuisé ou assoiffé pour attraper un verre d’eau.",
   "b3.k37": "Gardez de l’eau à côté de vous, buvez régulièrement et servez-vous de vos pauses comme d’un rappel tout simple.",
-  "b3.k38": "<em>Faites une pause. Buvez de l’eau. Puis revenez à l’essentiel.</em>"
+  "b3.k38": "<em>Faites une pause. Buvez de l’eau. Puis revenez à l’essentiel.</em>",
+  "f.soon.chipNew": "Tout juste sorti",
+  "f.c1.store": "Disponible sur Microsoft Store"
  },
  "zh": {
   "nav.app": "应用",
@@ -1169,10 +1177,10 @@ window.REMEMO_I18N = {
   "f.soon.p": "我们正在做更多事情，让休息变得更容易、更有意思，也更难被忘记。",
   "f.c1.h": "桌面版",
   "f.c1.p1": "你的屏幕时间不该只算手机。",
-  "f.c1.p2": "ReMemo 的桌面版正在路上，工作时把提醒直接送到你的电脑上，让你保持专注，又不会忘记自己已经在屏幕前坐了多久。",
+  "f.c1.p2": "ReMemo 现在也有桌面版了。工作时，提醒会直接送到你的电脑上，让你保持专注，又不会忘记自己已经在屏幕前坐了多久。",
   "f.c2.h": "不再有“跳过休息”",
   "f.c2.p1": "有时我们明知该休息了……却还是按下了跳过。",
-  "f.c2.p2": "我们正在做一个未来版本，让你无法简单地跳过休息。因为 ReMemo 不是来帮你熬过每一次提醒的，而是来帮你真正停下来的。",
+  "f.c2.p2": "现在你可以在设置中关闭跳过按钮，这样休息就只能完成，不能跳过。因为 ReMemo 不是来帮你熬过每一次提醒的，而是来帮你真正停下来的。",
   "f.c3.h": "自定义提醒规则",
   "f.c3.p1": "你的一天并不总是同一个样子。",
   "f.c3.p2": "很快，你就能设定自己的规则：把提醒安排在一天中的某个时间，或者在坐下时启动计时器，让 ReMemo 从那一刻开始计算。",
@@ -1371,7 +1379,9 @@ window.REMEMO_I18N = {
   "b3.k35": "让补水成为习惯",
   "b3.k36": "不必等到筋疲力尽或口渴难耐才去拿水。",
   "b3.k37": "把水放在手边，规律地喝，并把休息当作补水的简单提醒。",
-  "b3.k38": "<em>休息一下。喝口水。然后回到真正重要的事情上。</em>"
+  "b3.k38": "<em>休息一下。喝口水。然后回到真正重要的事情上。</em>",
+  "f.soon.chipNew": "刚刚发布",
+  "f.c1.store": "前往 Microsoft Store 获取"
  },
  "ar": {
   "nav.app": "التطبيق",
@@ -1442,10 +1452,10 @@ window.REMEMO_I18N = {
   "f.soon.p": "نعمل على طرق أخرى تجعل أخذ الاستراحات أسهل وأمتع وأصعب على النسيان.",
   "f.c1.h": "نسخة سطح المكتب",
   "f.c1.p1": "وقت شاشتك لا يتوقف عند هاتفك.",
-  "f.c1.p2": "نسخة سطح المكتب من ReMemo في الطريق، لتصل تذكيراتك إلى حاسوبك مباشرة أثناء العمل، فتبقى مركّزاً دون أن تفقد إحساسك بالوقت الذي قضيته أمام الشاشة.",
+  "f.c1.p2": "أصبح ReMemo متاحاً الآن على حاسوبك أيضاً. تصل تذكيراتك إلى سطح المكتب مباشرة أثناء العمل، فتبقى مركّزاً دون أن تفقد إحساسك بالوقت الذي قضيته أمام الشاشة.",
   "f.c2.h": "لا مزيد من «تخطي الاستراحة»",
   "f.c2.p1": "أحياناً نعرف أن علينا أن نستريح… ومع ذلك نضغط «تخطٍّ».",
-  "f.c2.p2": "نعمل على نسخة مقبلة لن يكون فيها بإمكانك تخطي استراحتك ببساطة. فـ ReMemo ليس هنا ليساعدك على تجاوز كل تذكير، بل ليساعدك على التوقف فعلاً.",
+  "f.c2.p2": "يمكنك الآن إيقاف زر التخطي من الإعدادات، فتصبح الاستراحة قابلة للإكمال فقط. فـ ReMemo ليس هنا ليساعدك على تجاوز كل تذكير، بل ليساعدك على التوقف فعلاً.",
   "f.c3.h": "قواعد تذكير مخصّصة",
   "f.c3.p1": "يومك لا يأخذ الشكل نفسه دائماً.",
   "f.c3.p2": "قريباً ستتمكن من وضع قواعدك الخاصة: جدولة تذكير في وقت محدد من اليوم، أو تشغيل مؤقت حين تجلس ليبدأ ReMemo العدّ من تلك اللحظة.",
@@ -1644,6 +1654,8 @@ window.REMEMO_I18N = {
   "b3.k35": "اجعل الترطيب عادة",
   "b3.k36": "لا داعي أن تنتظر حتى تُنهك أو يشتدّ بك العطش كي تمدّ يدك إلى الماء.",
   "b3.k37": "أبقِ الماء قريبًا، واشرب بانتظام، واجعل استراحاتك تذكيرًا بسيطًا بالترطيب.",
-  "b3.k38": "<em>خذ استراحة. اشرب بعض الماء. ثم عُد إلى ما يهمّ.</em>"
+  "b3.k38": "<em>خذ استراحة. اشرب بعض الماء. ثم عُد إلى ما يهمّ.</em>",
+  "f.soon.chipNew": "صدر للتو",
+  "f.c1.store": "احصل عليه من Microsoft Store"
  }
 };
